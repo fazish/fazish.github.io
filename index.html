@@ -6,7 +6,19 @@
 
    <body>
       <script>
-         // write your d3 code here.. 
+        {
+  const height = 33;
+  const context = DOM.context2d(width, height);
+  for (let i = 0; i < width; ++i) {
+    const t = i / width;
+    const r = Math.floor(255 * Math.sin(Math.PI * (t + 0 / 3)) ** 2);
+    const g = Math.floor(255 * Math.sin(Math.PI * (t + 1 / 3)) ** 2);
+    const b = Math.floor(255 * Math.sin(Math.PI * (t + 2 / 3)) ** 2);
+    context.fillStyle = `rgb(${r},${g},${b})`;
+    context.fillRect(i, 0, 1, height);
+    yield context.canvas;
+  }
+}
       </script>
       hello
    </body>
